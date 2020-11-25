@@ -227,7 +227,7 @@ func createQueue(h *C.struct_nfq_handle, num uint16) (*C.struct_nfq_q_handle, er
 }
 
 //export queueCallback
-func queueCallback(qh *C.struct_nfq_q_handle, _ *C.struct_nfgenmsg, nfad *C.struct_nfq_data, _ unsafe.Pointer) {
+func queueCallback(qh *C.struct_nfq_q_handle, msg *C.struct_nfgenmsg, nfad *C.struct_nfq_data, _ unsafe.Pointer) {
 	nfq := get(qh)
 	if nfq == nil {
 		return
